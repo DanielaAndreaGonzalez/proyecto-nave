@@ -21,4 +21,13 @@ Lista de tecnologías implementadas dentro del proyecto
 * Lenguaje de programación Javascript
 * Libreria: Axios  
 * Libreria de diseño: Bootstrap
+* Editor de código: visual Studio Code
+* Lenguaje de etiqueta: HTML 
+
+
+# Intalación
+
+* Instalar node npm y vue
+* Clonar el proyecto
+* Abrirlo con el editor de código de preferencia
 
