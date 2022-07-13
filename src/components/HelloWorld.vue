@@ -21,7 +21,7 @@
         <input type="number" class="form-control my-3" v-model="capacidadNave" title="Escribe la capacidad de carga">
         <input type="number" class="form-control my-3" v-model="potenciaNave" title="Escribe la potencia de la nave">
         <input type="number" class="form-control my-3" v-model="sistemaPropulsionNave" title="Escribe el sistema de propulsión">
-        <input type="text" class="form-control my-3" v-model="tipoCargaNaveNave" title="Escribe el tipo de carga">    
+        <input type="text" class="form-control my-3" v-model="tipoCargaNave" title="Escribe el tipo de carga">    
         <button class="btn btn-primary" @click.prevent="enviarDatos()">Agregar</button>   
         <br>
       <br>
@@ -154,7 +154,7 @@ export default {
         capacidadNave: 0,
         potenciaNave: 0,
         sistemaPropulsionNave: 0,
-      tipoCargaNave: "",
+        tipoCargaNave: "",
         catidadMotores:"",
         tipoEstudio:"",
         cantidadPersonas: "",
