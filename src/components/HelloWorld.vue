@@ -10,22 +10,22 @@
     <div v-if="vehiculoLanzadera">      
       <h4>Vehiculo Lanzadera</h4>             
         
-        <input type="text" class="form-control my-3" name="nombrenave" id="nombrenave" placeholder="Nombre nave" v-model="nombreNave" title="Escribe el nombre de la nave">              
-        <input type="text" class="form-control my-3" v-model="paisNave" title="Escribe el pais de la nave">
-        <input type="date" class="form-control my-3" v-model="actividadNave" title="Escribe el inicio de la actividad">
-        <input type="number" class="form-control my-3" v-model="velocidadNave" title="Escribe la velocidad de la nave">
-        <input type="text" class="form-control my-3" v-model="combustibleNave" title="Escribe el tipo de combustible">
-        <input type="number" class="form-control my-3" v-model="pesoNave" title="Escribe el peso">
-        <input type="number" class="form-control my-3" v-model="altoNave" title="Escribe el alto">
-        <input type="text" class="form-control my-3" v-model="tipoNave" title="Escribe el tipo de nave">
-        <input type="number" class="form-control my-3" v-model="capacidadNave" title="Escribe la capacidad de carga">
-        <input type="number" class="form-control my-3" v-model="potenciaNave" title="Escribe la potencia de la nave">
-        <input type="number" class="form-control my-3" v-model="sistemaPropulsionNave" title="Escribe el sistema de propulsión">
+        <input type="text" class="form-control my-3" name="nombrenave" id="nombrenave" placeholder="Ingrese nombre nave" v-model="nombreNave" title="Escribe el nombre de la nave">              
+        <input type="text" class="form-control my-3" v-model="paisNave" placeholder="Ingrese país nave" title="Escribe el pais de la nave">
+        <input type="date" class="form-control my-3" v-model="actividadNave" placeholder="Actividad nave" title="Escribe el inicio de la actividad">
+        <input type="number" class="form-control my-3" v-model="velocidadNave" placeholder="Ingrese velocidad de la nave" title="Escribe la velocidad de la nave">
+        <input type="text" class="form-control my-3" v-model="combustibleNave" placeholder="Ingrese combusible de la nave" title="Escribe el tipo de combustible">
+        <input type="number" class="form-control my-3" v-model="pesoNave" placeholder="Ingrese peso de la nave" title="Escribe el peso">
+        <input type="number" class="form-control my-3" v-model="altoNave" placeholder="Ingrese alto de la nave" title="Escribe el alto">
+        <input type="text" class="form-control my-3" v-model="tipoNave" placeholder="Ingrese tipo de la nave" title="Escribe el tipo de nave">
+        <input type="number" class="form-control my-3" v-model="capacidadNave" placeholder="Ingrese la capacidad de toneladas" title="Escribe la capacidad de carga">
+        <input type="number" class="form-control my-3" v-model="potenciaNave" placeholder="Ingrese la potencia nave"  title="Escribe la potencia de la nave">
+        <input type="text" class="form-control my-3" v-model="sistemaPropulsionNave" placeholder="Ingrese el sistema de propulsion"  title="Escribe el sistema de propulsión">
         <input type="text" class="form-control my-3" v-model="tipoCargaNave" title="Escribe el tipo de carga">    
         <button class="btn btn-primary" @click.prevent="enviarDatos()">Agregar</button>   
         <br>
       <br>
-      <h3>Lista naves Tripuladas</h3>
+      <h3>Lista vehiculos lanzadera</h3>
       <table class="table">
             <thead>
                 <tr>
@@ -39,7 +39,7 @@
                     <th scope="col">Tipo</th>
                     <th scope="col">Capacidad</th>
                     <th scope="col">Potencia</th>
-                    <th scope="col">Sistema Propuelsion</th>
+                    <th scope="col">Sistema Propulsion</th>
                     <th scope="col">Tipo Carga</th>
                 </tr>
             </thead>
@@ -64,28 +64,35 @@
 
     <div v-if="vehiculoNoTripulado">
       <h4>Nave Espacial No tripulada</h4>
-      <input type="text" class="form-control my-3" v-model="nombreNave" title="Escribe el nombre de la nave">
-      <input type="text" class="form-control my-3" v-model="paisNave" title="Escribe el pais de la nave">
-      <input type="date" class="form-control my-3" v-model="actividadNave" title="Escribe el inicio de la actividad">
-      <input type="number" class="form-control my-3" v-model="velocidadNave" title="Escribe la velocidad de la nave">
-      <input type="text" class="form-control my-3" v-model="combustibleNave" title="Escribe el tipo de combustible">
-      <input type="number" class="form-control my-3" v-model="pesoNave" title="Escribe el peso">
-      <input type="number" class="form-control my-3" v-model="altoNave" title="Escribe el alto">
-      <input type="text" class="form-control my-3" v-model="tipoNave" title="Escribe el tipo de nave">
-      <input type="number" class="form-control my-3" v-model="catidadMotores" title="Escribe la cantidad de motores">
-      <input type="text" class="form-control my-3" v-model="tipoEstudio" title="Escribe el tipo de estudio">
+      <input type="text" class="form-control my-3" placeholder="Ingrese nombre nave" v-model="nombreNave" title="Escribe el nombre de la nave">
+      <input type="text" class="form-control my-3" placeholder="Ingrese país nave" v-model="paisNave" title="Escribe el pais de la nave">
+      <input type="date" class="form-control my-3" placeholder="Actividad nave" v-model="actividadNave" title="Escribe el inicio de la actividad">
+      <input type="number" class="form-control my-3" placeholder="Ingrese velocidad de la nave" v-model="velocidadNave" title="Escribe la velocidad de la nave">
+      <input type="text" class="form-control my-3" v-model="combustibleNave" placeholder="Ingrese combusible de la nave" title="Escribe el tipo de combustible">
+      <input type="number" class="form-control my-3" v-model="pesoNave" placeholder="Ingrese peso de la nave" title="Escribe el peso">
+      <input type="number" class="form-control my-3" v-model="altoNave" placeholder="Ingrese alto de la nave" title="Escribe el alto">
+      <input type="text" class="form-control my-3" v-model="tipoNave" placeholder="Ingrese tipo de la nave" title="Escribe el tipo de nave">
+      <input type="number" class="form-control my-3" v-model="catidadMotores"  placeholder="Ingrese cantidad motores  de la nave" title="Escribe la cantidad de motores">
+      <input type="text" class="form-control my-3" v-model="tipoEstudio" placeholder="Ingrese tipo de estudio" title="Escribe el tipo de estudio">
       
       <button class="btn btn-primary" @click.prevent="enviarDatosNoTripulada()">Agregar</button>
 
       <br>
       <br>
-      <h3>Lista naves Tripuladas</h3>
+      <h3>Lista naves Espaciales No Tripuladas</h3>
       <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Pais</th>
                     <th scope="col">Actividad</th>
+                    <th scope="col">Velocidad</th>
+                    <th scope="col">Combustible</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Alto</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Cantidad motores</th>
+                    <th scope="col">Tipo Estudio</th>
                 </tr>
             </thead>
             <tbody>
@@ -93,6 +100,14 @@
                     <td>{{nave.nombre}}</td>
                     <td>{{nave.pais}}</td>
                     <td>{{nave.actividad}}</td>
+                    <td>{{nave.velocidad}}</td>
+                    <td>{{nave.tipoCombustible}}</td>
+                    <td>{{nave.peso}}</td>
+                    <td>{{nave.alto}}</td>
+                    <td>{{nave.tipo}}</td>
+                    <td>{{nave.cantidadMotores}}</td>
+                    <td>{{nave.tipoEstudio}}</td>
+
                 </tr>
             </tbody>
       </table>
@@ -100,26 +115,33 @@
 
     <div v-if="vehiculoTripulado">
       <h4>Nave Espacial tripulada</h4>
-      <input type="text" class="form-control my-3" v-model="nombreNave" title="Escribe el nombre de la nave">
-      <input type="text" class="form-control my-3" v-model="paisNave" title="Escribe el pais de la nave">
-      <input type="date" class="form-control my-3" v-model="actividadNave" title="Escribe el inicio de la actividad">
-      <input type="number" class="form-control my-3" v-model="velocidadNave" title="Escribe la velocidad de la nave">
-      <input type="text" class="form-control my-3" v-model="combustibleNave" title="Escribe el tipo de combustible">
-      <input type="number" class="form-control my-3" v-model="pesoNave" title="Escribe el peso">
-      <input type="number" class="form-control my-3" v-model="altoNave" title="Escribe el alto">
-      <input type="text" class="form-control my-3" v-model="tipoNave" title="Escribe el tipo de nave">
-      <input type="number" class="form-control my-3" v-model="cantidadPersonas" title="Escribe la cantidad de personas">
-      <input type="text" class="form-control my-3" v-model="tipoObejetivo" title="Escribe el tipo objetivo">      
+      <input type="text" class="form-control my-3" placeholder="Ingrese nombre nave" v-model="nombreNave" title="Escribe el nombre de la nave">
+      <input type="text" class="form-control my-3" placeholder="Ingrese país nave" v-model="paisNave" title="Escribe el pais de la nave">
+      <input type="date" class="form-control my-3" placeholder="Actividad nave" v-model="actividadNave" title="Escribe el inicio de la actividad">
+      <input type="number" class="form-control my-3" placeholder="Ingrese velocidad de la nave" v-model="velocidadNave" title="Escribe la velocidad de la nave">
+      <input type="text" class="form-control my-3" v-model="combustibleNave" placeholder="Ingrese combusible de la nave" title="Escribe el tipo de combustible">
+      <input type="number" class="form-control my-3" v-model="pesoNave" placeholder="Ingrese peso de la nave" title="Escribe el peso">
+      <input type="number" class="form-control my-3" v-model="altoNave" placeholder="Ingrese alto de la nave" title="Escribe el alto">
+      <input type="text" class="form-control my-3" v-model="tipoNave" placeholder="Ingrese tipo de la nave" title="Escribe el tipo de nave">
+      <input type="number" class="form-control my-3" v-model="cantidadPersonas" placeholder="Ingrese capacidad de personas" title="Escribe la cantidad de personas">
+      <input type="text" class="form-control my-3" v-model="tipoObejetivo" placeholder="Ingrese el objetivo de estudio" title="Escribe el tipo objetivo">      
       <button class="btn btn-primary" @click.prevent="enviarDatosTripulada()">Agregar</button>      
       <br>
       <br>
-      <h3>Lista naves Tripuladas</h3>
+      <h3>Lista naves Espaciales Tripuladas</h3>
       <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Pais</th>
-                    <th scope="col">Actividad</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Pais</th>
+                  <th scope="col">Actividad</th>
+                  <th scope="col">Velocidad</th>
+                  <th scope="col">Combustible</th>
+                  <th scope="col">Peso</th>
+                  <th scope="col">Alto</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Cantidad motores</th>
+                  <th scope="col">Tipo Estudio</th>
                 </tr>
             </thead>
             <tbody>
@@ -127,6 +149,16 @@
                     <td>{{nave.nombre}}</td>
                     <td>{{nave.pais}}</td>
                     <td>{{nave.actividad}}</td>
+                     <td>{{nave.nombre}}</td>
+                    <td>{{nave.pais}}</td>
+                    <td>{{nave.actividad}}</td>
+                    <td>{{nave.velocidad}}</td>
+                    <td>{{nave.tipoCombustible}}</td>
+                    <td>{{nave.peso}}</td>
+                    <td>{{nave.alto}}</td>
+                    <td>{{nave.tipo}}</td>
+                    <td>{{nave.cantidadPersonas}}</td>
+                    <td>{{nave.tipoObjetivo}}</td>
                 </tr>
             </tbody>
       </table>
