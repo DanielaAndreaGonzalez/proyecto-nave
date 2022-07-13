@@ -27,7 +27,7 @@ Lista de tecnologías implementadas dentro del proyecto
 
 # Intalación
 
-* Instalar node npm y vue
+* Instalar node , npm y vue
 * Clonar el proyecto
 * Abrirlo con el editor de código de preferencia
 
