@@ -17,8 +17,8 @@ Es el formulario del frontend del proyecto estacion espacial para la creación d
 # Tecnologías
 Lista de tecnologías implementadas dentro del proyecto
 
-*Framework Frontend Vue version : 3.0
-*Lenguaje de programación Javascript
-*Libreria: Axios  
-*Libreria de diseño: Bootstrap
+* Framework Frontend Vue version : 3.0
+* Lenguaje de programación Javascript
+* Libreria: Axios  
+* Libreria de diseño: Bootstrap
 
