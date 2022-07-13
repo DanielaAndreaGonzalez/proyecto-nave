@@ -3,7 +3,7 @@ module.exports = {
       port:8080,
       proxy: {
         '/naves':{
-          target: 'http://localhost:8081',
+          target: 'https://estacionespacialsofka.herokuapp.com/',
           ws: true, 
           changeOrigin:true
         }
