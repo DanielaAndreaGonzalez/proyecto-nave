@@ -21,11 +21,13 @@
         <input type="number" class="form-control my-3" v-model="capacidadNave" placeholder="Ingrese la capacidad de toneladas" title="Escribe la capacidad de carga">
         <input type="number" class="form-control my-3" v-model="potenciaNave" placeholder="Ingrese la potencia nave"  title="Escribe la potencia de la nave">
         <input type="text" class="form-control my-3" v-model="sistemaPropulsionNave" placeholder="Ingrese el sistema de propulsion"  title="Escribe el sistema de propulsión">
-        <input type="text" class="form-control my-3" v-model="tipoCargaNave" title="Escribe el tipo de carga">    
+        <input type="text" class="form-control my-3" v-model="tipoCargaNave" placeholder="Carga" title="Escribe el tipo de carga">    
         <button class="btn btn-primary" @click.prevent="enviarDatos()">Agregar</button>   
         <br>
       <br>
       <h3>Lista vehiculos lanzadera</h3>
+      <input type="text" class="form-control my-3" v-model="busquedaNaveLanzadera" placeholder="Buscar.."  title="Buscar...">
+      <button class="btn btn-primary" @click.prevent="btnbusquedaNaveLanzadera()">Buscar</button>
       <table class="table">
             <thead>
                 <tr>
@@ -80,6 +82,9 @@
       <br>
       <br>
       <h3>Lista naves Espaciales No Tripuladas</h3>
+       <input type="text" class="form-control my-3" v-model="busquedaNaveNoTripulada" placeholder="Buscar.."  title="Buscar...">
+      <button class="btn btn-primary" @click.prevent="btnbusquedaNaveNoTripulada()">Buscar</button>
+    
       <table class="table">
             <thead>
                 <tr>
@@ -124,11 +129,14 @@
       <input type="number" class="form-control my-3" v-model="altoNave" placeholder="Ingrese alto de la nave" title="Escribe el alto">
       <input type="text" class="form-control my-3" v-model="tipoNave" placeholder="Ingrese tipo de la nave" title="Escribe el tipo de nave">
       <input type="number" class="form-control my-3" v-model="cantidadPersonas" placeholder="Ingrese capacidad de personas" title="Escribe la cantidad de personas">
-      <input type="text" class="form-control my-3" v-model="tipoObejetivo" placeholder="Ingrese el objetivo de estudio" title="Escribe el tipo objetivo">      
+      <input type="text" class="form-control my-3" v-model="tipoObjetivo" placeholder="Ingrese el objetivo de estudio" title="Escribe el tipo objetivo">      
       <button class="btn btn-primary" @click.prevent="enviarDatosTripulada()">Agregar</button>      
       <br>
       <br>
       <h3>Lista naves Espaciales Tripuladas</h3>
+      <input type="text" class="form-control my-3" v-model="busquedaNaveTripulada" placeholder="Buscar.."  title="Buscar...">
+      <button class="btn btn-primary" @click.prevent="btnbusquedaNaveTripulada()">Buscar</button>
+     
       <table class="table">
             <thead>
                 <tr>
@@ -140,16 +148,13 @@
                   <th scope="col">Peso</th>
                   <th scope="col">Alto</th>
                   <th scope="col">Tipo</th>
-                  <th scope="col">Cantidad motores</th>
-                  <th scope="col">Tipo Estudio</th>
+                  <th scope="col">Cantidad Personas</th>
+                  <th scope="col">Estudio Objetivo</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="nave in navestripuladas" :key="nave.id">
                     <td>{{nave.nombre}}</td>
-                    <td>{{nave.pais}}</td>
-                    <td>{{nave.actividad}}</td>
-                     <td>{{nave.nombre}}</td>
                     <td>{{nave.pais}}</td>
                     <td>{{nave.actividad}}</td>
                     <td>{{nave.velocidad}}</td>
@@ -159,6 +164,8 @@
                     <td>{{nave.tipo}}</td>
                     <td>{{nave.cantidadPersonas}}</td>
                     <td>{{nave.tipoObjetivo}}</td>
+                    
+                    
                 </tr>
             </tbody>
       </table>
@@ -190,8 +197,11 @@ export default {
         catidadMotores:"",
         tipoEstudio:"",
         cantidadPersonas: "",
-        tipoObejetivo:"",
+        tipoObjetivo:"",
 
+      busquedaNaveLanzadera: "",
+      busquedaNaveNoTripulada : "",
+      busquedaNaveTripulada: "",
       vehiculoLanzadera :false,
       vehiculoTripulado:false,
       vehiculoNoTripulado:false,
@@ -204,6 +214,40 @@ export default {
 
 
   methods: {
+
+    btnbusquedaNaveLanzadera(){
+      var nombre = this.busquedaNaveLanzadera;
+        axios.get(`https://estacionespacialsofka.herokuapp.com/naves/buscarVehiculoLanzadera/${nombre}`)
+        //axios.get(`http://localhost:8081/naves/buscarVehiculoLanzadera/${nombre}`)
+            .then(response => {
+                this.naveLanzadera =  response.data ;
+            })
+            .catch(error => {    
+              console.log(error)            
+            });
+    },
+    btnbusquedaNaveNoTripulada(){
+      var nombre = this.busquedaNaveNoTripulada;
+        axios.get(`https://estacionespacialsofka.herokuapp.com/naves/buscarNaveNoTripulada/${nombre}`)
+        //axios.get(`http://localhost:8081/naves/buscarNaveNoTripulada/${nombre}`)
+            .then(response => {
+                this.navesNotripuladas =  response.data ;
+            })
+            .catch(error => {    
+              console.log(error)            
+            });
+    },
+    btnbusquedaNaveTripulada(){
+      var nombre = this.busquedaNaveTripulada;
+        axios.get(`https://estacionespacialsofka.herokuapp.com/naves/buscarNaveTripulada/${nombre}`)
+        //axios.get(`http://localhost:8081/naves/buscarNaveTripulada/${nombre}`)
+            .then(response => {
+                this.navestripuladas =  response.data ;
+            })
+            .catch(error => {    
+              console.log(error)            
+            });
+    },
     cambiarEstadoLanzadera(){
       this.listarDatos();
       this.vehiculoLanzadera = true;      
@@ -238,8 +282,8 @@ export default {
                 tipoCarga: this.tipoCargaNave,
       };
       console.log(parametrosNave)
-      /*axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarVehiculoLanzadera", parametrosNave)*/
-      axios.post("http://localhost:8081/naves/guardarVehiculoLanzadera", parametrosNave)
+      axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarVehiculoLanzadera", parametrosNave)
+      //axios.post("http://localhost:8081/naves/guardarVehiculoLanzadera", parametrosNave)
             .then(response => {
                 console.log(response.data);
                 this.listarDatos();
@@ -270,13 +314,13 @@ export default {
                 peso: this.pesoNave,
                 alto: this.altoNave,
                 tipo: this.tipoNave,
-                catidadMotores:this.catidadMotores,
+                cantidadMotores:this.catidadMotores,
                 tipoEstudio:this.tipoEstudio,
                 
       };
       console.log(parametrosNave)
-      /*axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarVehiculoLanzadera", parametrosNave)*/
-      axios.post("http://localhost:8081/naves/guardarNaveNoTripulada", parametrosNave)
+      axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarNaveNoTripulada", parametrosNave)
+      //axios.post("http://localhost:8081/naves/guardarNaveNoTripulada", parametrosNave)
             .then(response => {
                 console.log(response.data);
                 this.listarDatosNoTripulada();
@@ -306,12 +350,12 @@ export default {
                 alto: this.altoNave,
                 tipo: this.tipoNave,
                 cantidadPersonas: this.cantidadPersonas,
-                tipoObejetivo: this.tipoObejetivo
+                tipoObjetivo: this.tipoObjetivo
       };
       console.log(parametrosNave)
 
-      //axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarVehiculoLanzadera", parametrosNave)
-      axios.post("http://localhost:8081/naves/guardarNaveTripulada", parametrosNave)
+      axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarNaveTripulada", parametrosNave)
+      //axios.post("http://localhost:8081/naves/guardarNaveTripulada", parametrosNave)
             .then(response => {
                 console.log(response.data);
                 this.listarDatosTripulada();
@@ -324,15 +368,15 @@ export default {
                 this.altoNave="",
                 this.tipoNave="",
                 this.cantidadPersonas="",
-                this.tipoObejetivo=""
+                this.tipoObjetivo=""
             })
             .catch(error => {    
               console.log(error)            
                 });
     }, 
     listarDatosTripulada() {
-      //axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarVehiculoLanzadera", parametrosNave)
-      axios.get("http://localhost:8081/naves/listarNaveTripulada")
+      axios.get("https://estacionespacialsofka.herokuapp.com/naves/listarNaveTripulada")
+      //axios.get("http://localhost:8081/naves/listarNaveTripulada")
             .then(response => {
                 console.log(response.data);   
                 this.navestripuladas =  response.data ;
@@ -342,8 +386,8 @@ export default {
                 });
     },    
     listarDatosNoTripulada() {
-      //axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarVehiculoLanzadera", parametrosNave)
-      axios.get("http://localhost:8081/naves/listarNaveNoTripulada")
+      axios.get("https://estacionespacialsofka.herokuapp.com/naves/listarNaveNoTripulada")
+      //axios.get("http://localhost:8081/naves/listarNaveNoTripulada")
             .then(response => {
                 console.log(response.data);   
                 this.navesNotripuladas =  response.data ;
@@ -353,8 +397,8 @@ export default {
                 });
     }, 
     listarDatos() {
-      //axios.post("https://estacionespacialsofka.herokuapp.com/naves/guardarVehiculoLanzadera", parametrosNave)
-      axios.get("http://localhost:8081/naves/listarVehiculoLanzadera")
+      axios.get("https://estacionespacialsofka.herokuapp.com/naves/listarVehiculoLanzadera")
+      //axios.get("http://localhost:8081/naves/listarVehiculoLanzadera")
             .then(response => {
                 console.log(response.data);   
                 this.naveLanzadera =  response.data ;
