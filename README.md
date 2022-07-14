@@ -30,3 +30,4 @@ Lista de tecnologías implementadas dentro del proyecto
 * Instalar node , npm y vue
 * Clonar el proyecto
 * Abrirlo con el editor de código de preferencia
+* Ejecutarlo con el back del proyecto https://github.com/DanielaAndreaGonzalez/estacion_espacial
