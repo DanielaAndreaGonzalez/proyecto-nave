@@ -5,7 +5,7 @@
 
 Es el formulario del frontend del proyecto estacion espacial para la creación de tres naves
 
-![Image text](https://publicdomainvectors.org/photos/Rocket11.png)
+![Image text](https://1000marcas.net/wp-content/uploads/2020/11/Java-logo.jpg)
 
 # Objetivos
 * Implementar un framework para el frontend
